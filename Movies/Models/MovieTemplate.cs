@@ -4,6 +4,7 @@ namespace Movies.Models
 {
     public class MovieTemplate
     {
+        // building the database
         [Key]
         [Required]
         public int MovieID { get; set; }
