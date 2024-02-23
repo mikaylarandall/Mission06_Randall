@@ -13,7 +13,7 @@
         <option value="">Select a Category</option>
         @foreach (Category c in ViewBag.Categories)
         {
-            <option value="c.CategoryId">@c.CategoryName</option>
+            <option value="@c.CategoryId">@c.CategoryName</option>
         }
     </select>
     <br /><br />
@@ -29,6 +29,11 @@
         <option value="PG">PG</option>
         <option value="PG-13">PG-13</option>
         <option value="R">R</option>
+        <option value="NR">NR</option>
+        <option value="TV-PG">TV-PG</option>
+        <option value="TV-14">TV-14</option>
+        <option value="TV-Y7">TV-Y7</option>
+        <option value="TV-G">TV-G</option>
     </select>
     <br /><br />
     <label asp-for="Edited">Edited:</label>
