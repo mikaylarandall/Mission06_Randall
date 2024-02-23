@@ -23,6 +23,7 @@ namespace Movies.Controllers
         {
             return View();
         }
+        // putting the other table categories into a viewbag
         [HttpGet]
         public IActionResult Movie()
         {
@@ -30,7 +31,8 @@ namespace Movies.Controllers
                 .OrderBy(x => x.CategoryName).ToList();
             return View("Movie", new MovieTemplate());
         }
-
+        
+        // making sure the model is validated in the movie application, and adding the data to the database
         [HttpPost]
         public IActionResult Movie(MovieTemplate response)
         {
@@ -47,7 +49,7 @@ namespace Movies.Controllers
                 return View(response);
             }
         }
-
+        // showing the table with all of the movies in the database
         public IActionResult ViewMovies()
         {
             var movies = _context.Movies
@@ -55,7 +57,7 @@ namespace Movies.Controllers
                 .OrderBy(x => x.Title).ToList();
             return View(movies);
         }
-
+        // receiving the movie that the individual would like to edit
         [HttpGet]
         public IActionResult Edit(int id)
         {
@@ -65,7 +67,7 @@ namespace Movies.Controllers
               .OrderBy(x => x.CategoryName).ToList();
             return View("Movie", recordEdit);
         }
-
+        // updating and saving the data with the desired change
         [HttpPost]
         public IActionResult Edit(MovieTemplate updatedInfo)
         {
@@ -73,7 +75,7 @@ namespace Movies.Controllers
             _context.SaveChanges();
             return RedirectToAction("ViewMovies");
         }
-
+        // receiving the movie that the individual would like to delete
         [HttpGet]
         public IActionResult Delete(int id)
         {
@@ -81,7 +83,7 @@ namespace Movies.Controllers
                 .Single(x => x.MovieId == id);
             return View(recordDelete);
         }
-
+        // removing the movie from the database
         [HttpPost]
         public IActionResult Delete(MovieTemplate deletedInfo)
         {

@@ -2,6 +2,7 @@
 
 namespace Movies.Models
 {
+    // categories table
     public class Category
     {
         [Key]
